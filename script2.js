@@ -8,6 +8,9 @@ window.addEventListener("load", function() {
 
     function changeActiveState(index) {
 
+    for (x = 0; x < tab.length; x++) {
+    	tab[x].classList.remove("tabs__tab--active");
+    };
     	tab[index].classList.add("tabs__tab--active");
 
     }
