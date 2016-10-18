@@ -1,0 +1,71 @@
+If you're new to DOM scripting or JavaScript in general, building something as commonplace as a tabbed interface can seem a daunting task. It's especially difficult when you realize that your first instinct--searching for tutorials--yields way too many results, and many of those results cover too much material to be helpful to a true beginner.
+
+I'm going to walk through, step by step, how you should approach building a tabbed interface with HTML, CSS, and JavaScript. This is a beginner-focused tutorial, but it's clean code and doesn't get muddied up in any dependencies like jQuery. It's just a soup to nuts guide to building tabbed interfaces for websites with clear explanations of the decisions throughout.
+
+[Your tutorial goes here.]
+
+HTML
+
+<div>
+	<a>
+	</a>
+</div>
+
+<div>
+	<a>
+	</a>
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+Necessary minimum HTML tags
+
+CSS
+
+.tabs {
+  background-color: #666;
+}
+.tabs__tab {
+  display: inline-block;
+  padding: 20px;
+  background-color: rgba(51, 51, 51, 0.8);
+  color: #666;
+}
+.tabs__tab.tabs__tab--active {
+  color: #fff;
+  background-color: rgba(51, 51, 51, 1);
+}
+.js-content {
+  display: none;
+}
+.js-content--active {
+  display: block;
+}
+
+Makes HTML into tabs; set up for JS
+
+Add classes in HTML
+
+<div class="tabs">
+	<a class="tabs__tab tabs__tab--active">
+	</a>
+</div>
+
+<div class="tabs">
+	<a class="tabs__tab">
+	</a>
+</div>
+
+<div class="js-content js-content--active">
+	content
+</div>
+
+<div class="js-content js-content--active">
+	different content
+</div>
+
+Can begin Javascript
