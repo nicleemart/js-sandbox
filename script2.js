@@ -1,29 +1,35 @@
 window.addEventListener("load", function() {
-    var tab = document.getElementsByClassName("js-tabs");
-    var active = document.getElementsByClassName("tabs__tab--active");
-    var content = document.getElementsByClassName("js-content");
-    // var index = 1;
-    // var activeIndex = 0;
 
-    for (i = 0; i < tab.length; i++) {
-        tab[i].addEventListener("click", function(){
-         changeActiveState.bind(null, i);
-         // goToTab();
-    	});
+    var tabs = document.getElementsByClassName("js-tabs");
+
+    var active = document.getElementsByClassName("tabs__tab--active");
+
+    var contents = document.getElementsByClassName("js-content");
+
+    for (i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener("click", function(event) {
+            changeActiveState(event.target)
+            // goToTab();
+        });
     };
 
-    function changeActiveState(index) {
-        for (x = 0; x < tab.length; x++) {
-            tab[x].classList.remove("tabs__tab--active");
+    function changeActiveState(tab) {
+        for (x = 0; x < tabs.length; x++) {
+            tabs[x].classList.remove("tabs__tab--active");
         };
-        tab[index].classList.add("tabs__tab--active");
+
+        tab.classList.add("tabs__tab--active");
+        tab.dataset.content;
+        var content = document.querySelector("[data-content-for=" + tab.dataset.content + "]");
+
+        for (var n = contents.length - 1; n >= 0; n--) {
+            contents[n].classList.remove("js-content--active");
+        }
+
+        content.classList.add("js-content--active");
     };
 
     // function goToTab() {	
-    //     if (index !== activeIndex && index >= 0 && index <= tab.length) {
-    //         content[activeIndex].classList.remove("js-content--active");
-    //         content[index].classList.add("js-content--active");
-    //         activeIndex = index;
     //     }
     // };
 
