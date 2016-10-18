@@ -11,7 +11,7 @@ window.addEventListener("load", function() {
             tab[index].className = "tabs__tab tabs__tab--active";
 
         } else {
-            tab[index].className = "tabs__tab tabs__tab--inactive";
+            tab[index].className = "tabs__tab tabs__tab--active";
         }
     }
 
