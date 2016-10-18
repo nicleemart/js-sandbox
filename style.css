@@ -1,3 +1,7 @@
+  a {
+    text-decoration: none;
+  }
+
   .tabs{
     background-color: #666;
   }
@@ -17,14 +21,15 @@
     background-color: rgba(51, 51, 51, 1);
     text-decoration: none;
   }
-  .tabs__tab.tabs__tab--inactive{
-  }
   .tabs__tab.tabs__tab--active{
     color: #fff;
     background-color: rgba(51, 51, 51, 1);
   }
-  .content--inactive {
+  .js-content {
     display: none;
+  }
+  .js-content--active {
+    display: block;
   }
 
 
