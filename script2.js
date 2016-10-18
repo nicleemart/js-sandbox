@@ -2,6 +2,7 @@ window.addEventListener("load", function() {
     var tab = document.getElementsByClassName("js-tabs");
     var active = document.getElementsByClassName("tabs__tab--active");
     var content = document.getElementsByClassName("js-content");
+    var index = 0;
     var activeIndex = 0;
 
     for (i = 0; i < tab.length; i++) {
@@ -18,7 +19,7 @@ window.addEventListener("load", function() {
         tab[index].classList.add("tabs__tab--active");
     };
 
-    var goToTab = function(index) {
+    function goToTab(index) {
         if (index !== activeIndex && index >= 0 && index <= tab.length) {
             tab[activeIndex].classList.remove("tabs__tab--active");
             tab[index].classList.add("tabs__tab--active");
