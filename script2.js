@@ -19,7 +19,7 @@ window.addEventListener("load", function() {
         tab[index].classList.add("tabs__tab--active");
     };
 
-    // function goToTab() {
+    // function goToTab() {	
     //     if (index !== activeIndex && index >= 0 && index <= tab.length) {
     //         content[activeIndex].classList.remove("js-content--active");
     //         content[index].classList.add("js-content--active");
