@@ -11,6 +11,7 @@ window.addEventListener("load", function() {
     for (x = 0; x < tab.length; x++) {
     	tab[x].classList.remove("tabs__tab--active");
     };
+    console.log(index);
     	tab[index].classList.add("tabs__tab--active");
 
     }
