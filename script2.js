@@ -13,6 +13,8 @@ window.addEventListener("load", function() {
         });
     };
 
+    // Makes a tab appear "active" when clicked.
+    // tab
     function changeActiveState(tab) {
         for (x = 0; x < tabs.length; x++) {
             tabs[x].classList.remove("tabs__tab--active");
@@ -23,6 +25,8 @@ window.addEventListener("load", function() {
 
     };
 
+    // Matches content with appropriate tab. Hides content from previous tab and shows content from active tab.
+    // tab
     function goToTab(tab) {
         var content = document.querySelector("[data-content-for=" + tab.dataset.content + "]");
 
