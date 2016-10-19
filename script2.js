@@ -1,7 +1,5 @@
 var tabs = document.getElementsByClassName("js-tabs");
 
-var active = document.getElementsByClassName("tabs__tab--active");
-
 var contents = document.getElementsByClassName("js-content");
 
 window.addEventListener("load", function() {
