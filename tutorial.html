@@ -124,6 +124,28 @@ I also added a dataset property to the individual tab, which is the beginning of
 	different content
 </div>
 
+Now that there is a relationship between the tabs and content, we can bring the next part of a tab layout to life in Javascript.
+
+var contents = document.getElementsByClassName("js-content");
+
+goToTab(event.target);
+
+// Matches content with appropriate tab. Hides content from previous tab and shows content from active tab.
+//
+// tab - Node representing tab that was clicked.
+function goToTab(tab) {
+    var content = document.querySelector("[data-content-for=" + tab.dataset.content + "]");
+
+    for (var n = contents.length - 1; n >= 0; n--) {
+        contents[n].classList.remove("content--active");
+    }
+
+    content.classList.add("content--active");	
+
+};
+
+With the additon of the "contents" variable, I created the function goToTab() which will remove the "active" style from ALL the content classes and then will add the same class to the content that relates to the tab that was clicked.
+
 
 Event Listeners
 Load
