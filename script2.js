@@ -1,4 +1,4 @@
-var tabs = document.getElementsByClassName("js-tabs");
+var tabs = document.getElementsByClassName("js-tabs__tab");
 
 var contents = document.getElementsByClassName("js-content");
 
@@ -12,7 +12,8 @@ window.addEventListener("load", function() {
     };
 
     // Makes a tab appear "active" when clicked.
-    // tab
+    //
+    // tab - Node representing tab that was clicked.
     function changeActiveState(tab) {
         for (x = 0; x < tabs.length; x++) {
             tabs[x].classList.remove("tabs__tab--active");
@@ -24,15 +25,16 @@ window.addEventListener("load", function() {
     };
 
     // Matches content with appropriate tab. Hides content from previous tab and shows content from active tab.
-    // tab
+    //
+    // tab - Node representing tab that was clicked.
     function goToTab(tab) {
         var content = document.querySelector("[data-content-for=" + tab.dataset.content + "]");
 
         for (var n = contents.length - 1; n >= 0; n--) {
-            contents[n].classList.remove("js-content--active");
+            contents[n].classList.remove("content--active");
         }
 
-        content.classList.add("js-content--active");	
+        content.classList.add("content--active");	
 
     };
 

@@ -32,9 +32,9 @@ a {
   color: #fff;
   background-color: rgba(51, 51, 51, 1);
 }
-.js-content {
+.content {
   display: none;
 }
-.js-content--active {
+.content--active {
   display: block;
 }
