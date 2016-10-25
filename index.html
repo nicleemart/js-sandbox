@@ -9,8 +9,8 @@
 <body>
 
 
-  <div class="tabs">
-    <a class="tabs__tab tabs__tab--active js-tabs__tab" href="#" data-content="tab1Content">
+<div class="tabs js-tabs">
+  <a class="tabs__tab tabs__tab--active js-tabs__tab" href="#" data-content="tab1Content">
       One
     </a>
     <a class="tabs__tab js-tabs__tab" href="#" data-content="tab2Content">
@@ -18,46 +18,21 @@
     </a>
     <a class="tabs__tab js-tabs__tab" href="#" data-content="tab3Content">
       Three
-    </a>
-  </div>
+  </a>
 
-<div class="wrapper">
-  <div class="content content--active js-content" data-content-for="tab1Content">
+  <div class="js-content" data-content-for="tab1Content">
     One
   </div>
 
-  <div class="content js-content" data-content-for="tab2Content">
+  <div class="js-content" data-content-for="tab2Content" style="display:none">
     Two
   </div>
 
-  <div class="content js-content" data-content-for="tab3Content">
+  <div class="js-content" data-content-for="tab3Content" style="display: none">
     Three
   </div>
 </div>
 
-  <div class="tabs">
-    <a class="tabs__tab js-tabs__tab" href="#" data-content="tab4Content">
-      Four
-    </a>
-    <a class="tabs__tab js-tabs__tab" href="#" data-content="tab5Content">
-      Five
-    </a>
-    <a class="tabs__tab tabs__tab--active js-tabs__tab" href="#" data-content="tab6Content">
-      Six
-    </a>
-  </div>
-
-  <div class="content js-content" data-content-for="tab4Content">
-    Four
-  </div>
-
-  <div class="content js-content" data-content-for="tab5Content">
-    Five
-  </div>
-
-  <div class="content content--active js-content" data-content-for="tab6Content">
-    Six
-  </div>
 
 
 </body>
