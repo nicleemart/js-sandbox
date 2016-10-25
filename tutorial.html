@@ -9,22 +9,30 @@ To begin a tab layout, we will write the HTML structure for our tabs. This examp
 HTML
 
 <div class="">
-  <a class="" href="#">
-    </a>
-    <a class="" href="#">
-    </a>
-    <a class="" href="#">
+  <a class="" href="#" data-content="">
+    One
+  </a>
+  <a class="" href="#" data-content="">
+    Two
+  </a>
+  <a class="" href="#" data-content="">
+    Three
   </a>
 
-  <div class="">
+  <div class="" data-content-for="">
+    Content: One
   </div>
 
-  <div class="">
+  <div class="" data-content-for="">
+    Content: Two
   </div>
 
-  <div class="">
+  <div class="" data-content-for="">
+    Content: Three
   </div>
 </div>
+
+Our tabs and our content will be contained all in one div. Tabs will function as links. Data-content and data-content-for will be used for creating a relationship between a tab and its corresponding content in Javascript&mdash; we are just setting the framework now.
 
 Now, we can write the minimum amount of CSS needed so that our div tags look like tabs. To keep it simple, I am using grayscale.
 
@@ -48,24 +56,34 @@ CSS
 Add classes in HTML
 
 <div class="tabs js-tabs">
-  <a class="tabs__tab tabs__tab--active js-tabs__tab" href="#">
-    </a>
-    <a class="tabs__tab js-tabs__tab" href="#">
-    </a>
-    <a class="tabs__tab js-tabs__tab" href="#">
+  <a class="tabs__tab tabs__tab--active js-tabs__tab" href="#" data-content="tab1Content">
+    One
+  </a>
+  <a class="tabs__tab js-tabs__tab" href="#" data-content="tab2Content">
+    Two
+  </a>
+  <a class="tabs__tab js-tabs__tab" href="#" data-content="tab3Content">
+    Three
   </a>
 
-  <div class="js-content">
+  <div class="js-content" data-content-for="tab1Content">
+    Content: One
   </div>
 
-  <div class="js-content" style="display: none">
+  <div class="js-content" data-content-for="tab2Content" style="display: none">
+    Content: Two
   </div>
 
-  <div class="js-content" style="display: none">
+  <div class="js-content" data-content-for="tab3Content" style="display: none">
+    Content: Three
   </div>
 </div>
 
-While I added in the classes for style, I also added the classes js-tabs, js-tabs__tabs and js-content. These will be the classes that get referenced in the Javascript&mdash; our Javascript will not touch any of our style classes. I also added inline style to the two divs that we want to be hidden. Although inline style isn't necessarily the best practice and doesn't look the best, I find it is the least complicated way to show/hide content in this way.
+While I added in the classes for style, I also added the classes js-tabs, js-tabs__tabs and js-content. These will be the classes that get referenced in the Javascript&mdash; our Javascript will not touch any of our style classes.
+
+I also added inline style to the two divs that we want to be hidden. Although inline style isn't necessarily the best practice and doesn't look the best, I find it is the least complicated way to show/hide content in this way.
+
+Lastly, I gave our tabs and content sections corresponding names so that the Javascript knows which content div belongs to which tab.
 
 Now that our tabs look like tabs, we can now begin to bring them to live with Javascript.
 
@@ -73,14 +91,16 @@ Using "unobtrusive Javascript"
 
 When writing Javascript, I like to separate my Javascript from my HTML in the same way CSS is separate. That way, the content, style and behavior are not all mixed together. When writing Javascript this way, I begin with writing the event listeners I will need.
 
-All the code expect for the variables will live inside the window.load event listener.
+All the Javscript code will live inside the window.load event listener.
 
 window.addEventListener("load", function() {
 });
 
-After the window loads, we want something to happen when we click on a specific tab. Specifically, we want the tab that was clicked to look a different way, AND we want it to show certain content. Let's address the how it looks first.
+Let's declare a variable to represent all the tabs in the DOM.
 
 var tabs = document.getElementsByClassName("js-tabs__tab");
+
+After the window loads, we want something to happen when we click on a specific tab. Specifically, we want the tab that was clicked to look a different way, AND we want it to show certain content. Let's address the how it looks first.
 
 for (i = 0; i < tabs.length; i++) {
     tabs[i].addEventListener("click", function(event) {
@@ -102,29 +122,12 @@ function changeActiveState(tab) {
 
 };
 
-At the top of the page, I created the variable "tabs", which represents a whole tab in the DOM. From there, I wrote a loop that will be responsible for handling when a tab is clicked. Inside the event listener, there is the function changeActiveState(). This function is what actually makes a tab appear "active" by changing the style. For each tab clicked, the class "tabs__tab--active" is removed from ALL tabs and then applied to only the tab clicked, or target.
+I wrote a loop that will be responsible for handling when a tab is clicked. Inside the event listener, there is the function changeActiveState(). This function is what actually makes a tab appear "active" by changing the style. For each tab clicked, the class "tabs__tab--active" is removed from ALL tabs and then applied to only the tab clicked, or target.
 
-I also added a dataset property to the individual tab, which is the beginning of creating a relationship between a tab and content. The next step is to create custom data attributes in the HTML which will allow the Javascript reach into the HTML and make sense of the relationship between the tab and its content.
 
-<div class="tabs">
-	<a class="tabs__tab js-tabs__tab tabs__tab--active" data-content="tab1Content">
-	</a>
-</div>
 
-<div class="tabs">
-	<a class="tabs__tab js-tabs__tab" data-content="tab1Content">
-	</a>
-</div>
 
-<div class="content content--active js-content" data-content-for="tab1Content">
-	content
-</div>
 
-<div class="content js-content" data-content-for="tab1Content">
-	different content
-</div>
-
-Now that there is a relationship between the tabs and content, we can bring the next part of a tab layout to life in Javascript.
 
 var contents = document.getElementsByClassName("js-content");
 
