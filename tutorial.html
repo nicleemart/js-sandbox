@@ -4,27 +4,29 @@ I'm going to walk through, step by step, how you should approach building a tabb
 
 [Your tutorial goes here.]
 
-Before anything else, you will need to build a structure in HTML for your tabs. You will need this much at the very least-- two div tags containing links for the tabs and two more div tags where your content can live.
+To begin a tab layout, we will write the HTML structure for our tabs. This example will have three tabs with three corresponding sections.
 
 HTML
 
-<div>
-	<a>
-	</a>
+<div class="">
+  <a class="" href="#">
+    </a>
+    <a class="" href="#">
+    </a>
+    <a class="" href="#">
+  </a>
+
+  <div class="">
+  </div>
+
+  <div class="">
+  </div>
+
+  <div class="">
+  </div>
 </div>
 
-<div>
-	<a>
-	</a>
-</div>
-
-<div>
-</div>
-
-<div>
-</div>
-
-Now, we can write the minimum amount of CSS needed so the div tags look like tabs. To keep it simple, I am using grayscale.
+Now, we can write the minimum amount of CSS needed so that our div tags look like tabs. To keep it simple, I am using grayscale.
 
 CSS
 
@@ -41,34 +43,31 @@ CSS
   color: #fff;
   background-color: rgba(51, 51, 51, 1);
 }
-.content {
-  display: none;
-}
-.content--active {
-  display: block;
-}
+
 
 Add classes in HTML
 
-<div class="tabs">
-	<a class="tabs__tab js-tabs__tab tabs__tab--active">
-	</a>
+<div class="tabs js-tabs">
+  <a class="tabs__tab tabs__tab--active js-tabs__tab" href="#">
+    </a>
+    <a class="tabs__tab js-tabs__tab" href="#">
+    </a>
+    <a class="tabs__tab js-tabs__tab" href="#">
+  </a>
+
+  <div class="js-content">
+  </div>
+
+  <div class="js-content" style="display: none">
+  </div>
+
+  <div class="js-content" style="display: none">
+  </div>
 </div>
 
-<div class="tabs">
-	<a class="tabs__tab js-tabs__tab">
-	</a>
-</div>
+While I added in the classes for style, I also added the classes js-tabs, js-tabs__tabs and js-content. These will be the classes that get referenced in the Javascript&mdash; our Javascript will not touch any of our style classes. I also added inline style to the two divs that we want to be hidden. Although inline style isn't necessarily the best practice and doesn't look the best, I find it is the least complicated way to show/hide content in this way.
 
-<div class="content content--active js-content">
-	content
-</div>
-
-<div class="content js-content">
-	different content
-</div>
-
-Now, your tabs look like tabs. We can now begin to bring them to live with Javascript.
+Now that our tabs look like tabs, we can now begin to bring them to live with Javascript.
 
 Using "unobtrusive Javascript"
 
