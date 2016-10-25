@@ -87,6 +87,7 @@ Lastly, I gave our tabs and content sections corresponding names so that the Jav
 
 Now that our tabs look like tabs, we can now begin to bring them to live with Javascript.
 
+
 Using "unobtrusive Javascript"
 
 When writing Javascript, I like to separate my Javascript from my HTML in the same way CSS is separate. That way, the content, style and behavior are not all mixed together. When writing Javascript this way, I begin with writing the event listeners I will need.
@@ -124,10 +125,7 @@ function changeActiveState(tab) {
 
 I wrote a loop that will be responsible for handling when a tab is clicked. Inside the event listener, there is the function changeActiveState(). This function is what actually makes a tab appear "active" by changing the style. For each tab clicked, the class "tabs__tab--active" is removed from ALL tabs and then applied to only the tab clicked, or target.
 
-
-
-
-
+Now that we have changed how tabs look when they are clicked, we should also change the content that appears.
 
 var contents = document.getElementsByClassName("js-content");
 
